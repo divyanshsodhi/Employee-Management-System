@@ -4,3 +4,7 @@ body{
     background-color: #161616;
     color:white;
 }
+
+#tasklist::-webkit-scrollbar{
+    display:none
+}
