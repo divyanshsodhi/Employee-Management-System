@@ -1,12 +1,19 @@
-import React from 'react'
-
+import React from 'react';
+ 
 
 
 const employees = [
   {
     id: 1,
-    email: "employee1@example.com",
+    firstname: "Aarav",
+    email: "e@e.com",
     password: "123",
+    taskCounts: {
+      active: 2,
+      completed: 1,
+      failed: 0,
+      newTask: 1
+    },
     tasks: [
       {
         title: "Update Client Report",
@@ -42,8 +49,15 @@ const employees = [
   },
   {
     id: 2,
+    firstname: "Isha",
     email: "employee2@example.com",
     password: "123",
+    taskCounts: {
+      active: 2,
+      completed: 1,
+      failed: 1,
+      newTask: 2
+    },
     tasks: [
       {
         title: "UI Design Draft",
@@ -89,8 +103,15 @@ const employees = [
   },
   {
     id: 3,
+    firstname: "Rohan",
     email: "employee3@example.com",
     password: "123",
+    taskCounts: {
+      active: 2,
+      completed: 1,
+      failed: 1,
+      newTask: 1
+    },
     tasks: [
       {
         title: "Data Backup",
@@ -136,8 +157,15 @@ const employees = [
   },
   {
     id: 4,
+    firstname: "Meera",
     email: "employee4@example.com",
     password: "123",
+    taskCounts: {
+      active: 1,
+      completed: 2,
+      failed: 0,
+      newTask: 1
+    },
     tasks: [
       {
         title: "Customer Onboarding",
@@ -173,8 +201,15 @@ const employees = [
   },
   {
     id: 5,
+    firstname: "Karan",
     email: "employee5@example.com",
     password: "123",
+    taskCounts: {
+      active: 2,
+      completed: 2,
+      failed: 0,
+      newTask: 2
+    },
     tasks: [
       {
         title: "Security Check",
@@ -233,20 +268,19 @@ const employees = [
 const admin = [
   {
     id: 1,
+    firstname: "Priya",
     email: "admin@example.com",
     password: "123"
   }
 ];
 
+export const setLocalStorage = () => {
+  localStorage.setItem('employees', JSON.stringify(employees));
+  localStorage.setItem('admin', JSON.stringify(admin));
+};
 
-
-export const setLocalStorage = ()=>{
-    localStorage.setItem('employees',JSON.stringify(employees));
-    localStorage.setItem('admin',JSON.stringify(admin));
-}
-
-export const getLocalStorage =()=>{
-        const employees = JSON.parse(localStorage.getItem('employees'))
-        const admin = JSON.parse(localStorage.getItem('admin'));
-        return {employees,admin}
-}
+export const getLocalStorage = () => {
+  const employees = JSON.parse(localStorage.getItem('employees'));
+  const admin = JSON.parse(localStorage.getItem('admin'));
+  return { employees, admin };
+};

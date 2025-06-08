@@ -4,7 +4,7 @@ const CreateTask = () => {
   return (
     <div className=''>
                 <form action="" className='flex flex-wrap w-full items-start justify-between '> 
-                   <div className='bg-zinc-700 w-full mt-10 flex sm:gap-5 md:justify-between lg:justify-between gap-10 p-10 items-center rounded-xl  lg:px-60 '>
+                   <div className='bg-zinc-700 w-full mt-10 flex sm:gap-5 sm:flex-col sm:justify-center md:flex-row  md:justify-between lg:justify-between gap-10 p-10 items-center rounded-xl  lg:px-60 '>
                         <div className="left">
                           <h3>Task Title</h3>  
                           <input className='border-1 border-zinc-300 rounded-xl p-2' type="text" placeholder="Make a UI Design" name="" id="" />
