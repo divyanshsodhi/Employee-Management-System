@@ -9,16 +9,19 @@ const App = () => {
 
   const [user, setuser] = useState(null);
 const [loggedInUserData, setLoggedInUserData] = useState(null)
-  const authData = useContext(AuthContext);
+  const [userData,setUserData] = useContext(AuthContext);
 
-  // useEffect(() => {
-  //   if(authData){
-  //     const loggedInUser = localStorage.getItem("loggedInUser");
-  //     if(loggedInUser){
-  //       setuser(loggedInUser.role);
-  //     }
-  //   }
-  // }, [authData])
+  useEffect(() => {
+  const loggedInUser = localStorage.getItem('loggedInUser');
+  if (loggedInUser && userData) {
+    const parsed = JSON.parse(loggedInUser);
+    if (parsed.role === 'employee') {
+      const updatedUser = userData.find(u => u.email === parsed.data.email);
+      setLoggedInUserData(updatedUser);
+    }
+  }
+}, [userData]);
+  
 
   
 
@@ -26,12 +29,12 @@ const [loggedInUserData, setLoggedInUserData] = useState(null)
       if(email === 'admin@me.com' && password == '123'){
         setuser('admin');
         localStorage.setItem("loggedInUser",JSON.stringify({role:'admin'}))
-      }else if (authData){
-        const employee= authData.employees.find((e)=> email == e.email && e.password == password);
+      }else if (userData){
+        const employee= userData.find((e)=> email == e.email && e.password == password);
         if(employee){
           setuser('employee');
           setLoggedInUserData(employee);
-          localStorage.setItem('loggedInUser',JSON.stringify({role:'employee'}));
+          localStorage.setItem('loggedInUser',JSON.stringify({role:'employee',data:employee}));
         }
       }
       else{
@@ -43,7 +46,7 @@ const [loggedInUserData, setLoggedInUserData] = useState(null)
   return (
    <>
     {!user ? <Login handleLogin = {handleLogin}/>: ""}
-    {user === 'admin'? <AdminDashboard/> : (user == 'employee'? <EmployeeDashboard data = {loggedInUserData} /> : null )
+    {user === 'admin'? <AdminDashboard changeUser ={setuser}/> : (user == 'employee'? <EmployeeDashboard changeUser ={setuser} data = {loggedInUserData} /> : null )
 }
 </>
   )
