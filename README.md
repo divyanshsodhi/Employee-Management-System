@@ -1,12 +1,27 @@
-# React + Vite
+Employee Management System
+A responsive and intuitive Employee Management System built using React, designed to help manage employee tasks efficiently. This project provides functionality to add employees, assign tasks, track task status, and display personalized task dashboards.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Features
+🔐 Employee Login System
+Each employee can log in with a unique email and password.
 
-Currently, two official plugins are available:
+📋 Task Management
+Add tasks with title, description, date, and category. Tasks can be assigned to specific employees.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✅ Task Status Tracking
+Tasks are categorized based on their status: New, Active, and Completed.
 
-## Expanding the ESLint configuration
+🧠 Task Filtering
+Filter tasks dynamically to display tasks based on employee and status.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+📅 Due Date Management
+Tasks include due dates and are visually sorted to enhance productivity.
+
+🌐 Responsive Design
+Built with Flexbox and Tailwind CSS (if used), ensuring compatibility across all devices.
+
+🛠️ Tech Stack
+Frontend: React (Hooks, Context API)
+Styling: Tailwind CSS (optional) / CSS
+State Management: React useState/useContext
+Data Management: Local state (can be extended to localStorage or a backend API)
